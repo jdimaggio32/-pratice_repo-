@@ -35,7 +35,6 @@
         android:autofillHints="true"
         android:ems="10"
         android:hint="@string/dollars_hint"
-        android:hintTextColor="#757575"
         android:importantForAutofill="no"
         android:inputType="numberDecimal"
         android:minWidth="32dp"
