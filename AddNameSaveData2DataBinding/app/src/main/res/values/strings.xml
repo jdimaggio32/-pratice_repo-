@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AddNameSaveDataViewModel</string>
+    <string name="enter_name">Enter name</string>
+    <string name="no_names_to_display">No names to display</string>
+    <string name="mainfragment">MainFragment</string>
+    <string name="enter_names">Enter Name</string>
+    <string name="add_name">Add Name</string>
+    <string name="no_names">No names</string>
+</resources>
