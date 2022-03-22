@@ -10,13 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6689befe-099e-43de-823f-3181c40f08e6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LifeCycleAwareProject/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LifeCycleAwareProject/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LifeCycleAwareProject/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LifeCycleAwareProject/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LifeCycleAwareProject/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LifeCycleAwareProject/app/src/main/java/com/ebookfrenzy/lifecycleawareproject/MyObserver.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LifeCycleAwareProject/app/src/main/java/com/ebookfrenzy/lifecycleawareproject/MyOwner.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\jdima\.android\avd\Pixel_2_XL_API_26.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
