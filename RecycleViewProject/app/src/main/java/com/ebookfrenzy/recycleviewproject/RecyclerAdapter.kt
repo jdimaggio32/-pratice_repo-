@@ -1,5 +1,6 @@
 package com.ebookfrenzy.recycleviewproject
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.TextView
@@ -13,6 +14,9 @@ import com.google.android.material.snackbar.Snackbar
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
+    var iTitle =""
+    var iDetail=""
+    var iImage= R.drawable.android_image_1
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var itemImage: ImageView
@@ -27,6 +31,8 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
                 var position: Int = getAdapterPosition()
                 Snackbar.make(v, "Click detected on item $position",
                     Snackbar.LENGTH_LONG).setAction("Action", null).show()
+                MainActivity().showDetails(v)
+
             }
         }
     }
@@ -44,9 +50,23 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
 
-        viewHolder.itemTitle.text = Data().getTitles()[ranNum()]
-        viewHolder.itemDetail.text = Data().getDetails()[ranNum()]
-        viewHolder.itemImage.setImageResource(Data().getImages()[ranNum()])
+        iTitle = Data().getTitles()[ranNum()]
+        iDetail = Data().getDetails()[ranNum()]
+        iImage = Data().getImages()[ranNum()]
+
+        viewHolder.itemTitle.text = iTitle
+        viewHolder.itemDetail.text = iDetail
+        viewHolder.itemImage.setImageResource(iImage)
+    }
+
+    fun getiTitle(): String {
+        return iTitle
+    }
+    fun getiDetail(): String {
+        return iDetail
+    }
+    fun getiImage(): Int {
+        return iImage
     }
 
     override fun getItemCount(): Int {

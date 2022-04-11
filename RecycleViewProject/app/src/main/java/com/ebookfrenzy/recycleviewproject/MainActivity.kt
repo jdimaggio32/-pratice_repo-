@@ -1,12 +1,10 @@
 package com.ebookfrenzy.recycleviewproject
 
+import android.view.View
+import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import com.ebookfrenzy.recycleviewproject.databinding.ActivityMainBinding
@@ -15,11 +13,14 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
+    private val request_code = 5
+
     private var layoutManager: RecyclerView.LayoutManager? = null
     private var adapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>? = null
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +51,42 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+    fun showDetails(view: View) {
+        val i = Intent(this, SecondActivity::class.java)
+        //original top mid bottom
+        var titleString =  RecyclerAdapter().getiTitle() //binding.top.text.toString()
+        var detailString = RecyclerAdapter().getiDetail()
+        var imageView = RecyclerAdapter().getiImage()
+        i.putExtra("titleString", titleString)
+        i.putExtra("detailString", detailString)
+        i.putExtra("imageView", imageView)
+        startActivityForResult(i, request_code)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if ((requestCode == request_code) &&
+            (resultCode == RESULT_OK)) {
+            data?.let {
+                if (it.hasExtra("returnData")) {
+                    val returnString = it.extras?.getString("returnData")
+                    if (returnString != null) {
+                        RecyclerAdapter().iTitle = returnString
+                    }
+                    if (returnString != null) {
+                        RecyclerAdapter().iDetail = returnString
+                    }
+                    //need to find specific picture
+                    if (returnString != null) {
+                        RecyclerAdapter().iImage = R.drawable.android_image_1
+                    }
+                }
+            }
+        }
+    }
+
+
 
 
 }
