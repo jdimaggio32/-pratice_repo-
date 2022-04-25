@@ -1,26 +1,25 @@
-package com.ebookfrenzy.recycleviewproject
+package com.ebookfrenzy.finalProject
 
-import android.view.View
-import android.content.Intent
 import android.os.Bundle
+import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
-import com.ebookfrenzy.recycleviewproject.databinding.ActivityMainBinding
+import com.ebookfrenzy.finalProject.databinding.ActivityMainBinding
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.ebookfrenzy.finalProject.databinding.ContentMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private val request_code = 5
-
     private var layoutManager: RecyclerView.LayoutManager? = null
     private var adapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>? = null
-
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         binding.contentMain.recyclerView.layoutManager = layoutManager
         adapter = RecyclerAdapter()
         binding.contentMain.recyclerView.adapter = adapter
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -51,12 +51,5 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-
-
-
-
-
-
 
 }

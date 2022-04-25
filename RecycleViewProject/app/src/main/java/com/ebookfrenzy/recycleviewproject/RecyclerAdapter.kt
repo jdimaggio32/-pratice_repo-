@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.ebookfrenzy.recycleviewproject.R
 import com.google.android.material.snackbar.Snackbar
@@ -67,6 +68,42 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     }
     fun getiImage(): Int {
         return iImage
+    }
+
+
+    //moved this from the mainActivity
+    fun showDetails(view: View) {
+        val i = Intent(this, SecondActivity::class.java)
+        //original top mid bottom
+        var titleString =  RecyclerAdapter().getiTitle() //binding.top.text.toString()
+        var detailString = RecyclerAdapter().getiDetail()
+        var imageView = RecyclerAdapter().getiImage()
+        i.putExtra("titleString", titleString)
+        i.putExtra("detailString", detailString)
+        i.putExtra("imageView", imageView)
+        startActivityForResult(i, request_code)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if ((requestCode == request_code) &&
+            (resultCode == AppCompatActivity.RESULT_OK)) {
+            data?.let {
+                if (it.hasExtra("returnData")) {
+                    val returnString = it.extras?.getString("returnData")
+                    if (returnString != null) {
+                        RecyclerAdapter().iTitle = returnString
+                    }
+                    if (returnString != null) {
+                        RecyclerAdapter().iDetail = returnString
+                    }
+                    //need to find specific picture
+                    if (returnString != null) {
+                        RecyclerAdapter().iImage = R.drawable.android_image_1
+                    }
+                }
+            }
+        }
     }
 
     override fun getItemCount(): Int {
